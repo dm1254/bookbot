@@ -10,7 +10,7 @@ def main():
 	for char, count in sorted_char:
 		if char.isalpha():
 			print(f"The '{char}' character was found {count} times")
-	print(f"End of {get_path} report\n")
+	print(f"End of {get_path} report")
 def get_book(path):
 	with open (path) as f:
 		return f.read()
