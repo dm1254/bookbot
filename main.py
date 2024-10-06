@@ -3,10 +3,14 @@ def main():
 	text = get_book(get_path)
 	print(text)
 	word_count = number_of_words(text)
+	print(f"Beginning of {get_path} book report\n") 
 	print(f"Word Count:{word_count} \n")
 	Character_count = character_count(text)
-	print(Character_count)
-
+	sorted_char = sort(Character_count)
+	for char, count in sorted_char:
+		if char.isalpha():
+			print(f"The '{char}' character was found {count} times")
+	print(f"End of {get_path} report\n")
 def get_book(path):
 	with open (path) as f:
 		return f.read()
@@ -24,4 +28,10 @@ def character_count(Text):
 		else:
 			character_dict[character] = 1
 	return character_dict
+
+def sort(dict):
+	
+	sorted_items = sorted(dict.items(), key=lambda x: x[1], reverse=True)
+	return sorted_items
+
 main()  
